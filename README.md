@@ -1,13 +1,19 @@
-﻿欢迎加入技术交流群：[46523908](https://jq.qq.com/?_wv=1027&k=42bt69n)  
+﻿#LiveSourceCode
+欢迎加入技术交流群：[46523908](https://jq.qq.com/?_wv=1027&k=42bt69n)  
 
 * YY观看频道：56600481
 * 浏览器观看地址：[http://www.huya.com/yolanda](http://www.huya.com/yolanda)
+* 直播视频下载地址：[http://pan.baidu.com/s/1bpHp3I3](http://pan.baidu.com/s/1bpHp3I3)
 
 此项目是严振杰同学直播时讲的代码的收集。
 
 # 代码文件夹说明
-* HttpRestModule 
+1. ParallaxRefresh
+结合[Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)自定义下拉刷新视差动画。
+2. HttpRestModule
 NoHttp自定义Request结合业务数据的封装。
+3. CoolHttp
+从0开始设计一个Http框架，完整代码。如果要在项目中使用，推荐NoHttp：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/NoHttp)。
 
 # 关于我
 个人主页：[http://www.yanzhenjie.com](http://www.yanzhenjie.com)  

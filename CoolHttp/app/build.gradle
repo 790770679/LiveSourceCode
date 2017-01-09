@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "com.yanzhenjie.coolhttp"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+
+    // 依赖okurlconneciton
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.5.0'
+
+    // 权限
+    compile 'com.yanzhenjie:permission:1.0.4'
+
+    // 相册。
+    compile 'com.yanzhenjie:album:1.0.0'
+
+    // fastjson.
+    compile 'com.alibaba:fastjson:1.1.52.android'
+}
