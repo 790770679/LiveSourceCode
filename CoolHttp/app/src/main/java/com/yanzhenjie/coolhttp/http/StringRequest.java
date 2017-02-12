@@ -39,7 +39,7 @@ public class StringRequest extends Request<String> {
     }
 
     public static String parseString(Map<String, List<String>> responseHeader, byte[] responseBody) {
-        if (responseBody == null || responseBody.length > 0) return "";
+        if (responseBody == null || responseBody.length <= 0) return "";
 
         String charset = HeadUtils.parseValue(responseHeader, "Content-Type", "charset");
         if (!TextUtils.isEmpty(charset))

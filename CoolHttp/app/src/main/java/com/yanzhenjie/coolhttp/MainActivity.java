@@ -10,6 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
@@ -109,10 +110,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void request() {
-        String url = "http://192.168.1.226/HttpServer/upload";
+        // 测试接口见：http://api.nohttp.net
+
+        String url = "http://api.nohttp.net/upload";
         StringRequest request = new StringRequest(url, Method.POST);
-        request.addParams("name", "android");
-        request.addParams("pwd", 456);
+        request.addParams("name", "yanzhenjie");
+        request.addParams("pwd", 123);
         if (mPreivewList != null && mPreivewList.size() > 0) {
             for (int i = 0; i < mPreivewList.size(); i++) {
                 request.addParams("file" + i, new FileBinary(new File(mPreivewList.get(i))));
@@ -123,11 +126,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSucceed(Response<String> response) {
                 String result = response.getResult();
+                Log.e("CoolHttp", result);
                 mTvResult.setText("结果：" + result);
             }
 
             @Override
             public void onFailed(Response<String> response) {
+                Log.e("CoolHttp", "", response.getException());
                 mTvResult.setText("请求失败。");
             }
         });

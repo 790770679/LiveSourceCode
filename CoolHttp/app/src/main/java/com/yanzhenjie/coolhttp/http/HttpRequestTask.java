@@ -28,6 +28,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 
 import javax.net.ssl.HostnameVerifier;
@@ -88,6 +89,7 @@ public class HttpRequestTask {
             // 3. 拿到服务器的响应数据。
             responseCode = urlConnection.getResponseCode();
             responseHeader = urlConnection.getHeaderFields();
+            Log.i("CoolHttp", "ResponseCode:" + responseCode);
             // has body.
             if (hasBody(responseCode)) {
                 ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
@@ -95,11 +97,23 @@ public class HttpRequestTask {
 
                 byte[] buffer = new byte[2048];
                 int len;
-                while ((len = inputStream.read(buffer)) != -1) {
-                    arrayOutputStream.write(buffer, 0, len);
+                try {
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        arrayOutputStream.write(buffer, 0, len);
+                    }
+                    responseBody = arrayOutputStream.toByteArray();
+                } finally {
+                    //noinspection ThrowFromFinallyBlock
+                    inputStream.close();
+                    //noinspection ThrowFromFinallyBlock
+                    arrayOutputStream.close();
                 }
 
-                responseBody = arrayOutputStream.toByteArray();
+                if (responseBody == null)
+                    Log.w("CoolHttp", "Response body is null");
+                else
+                    Log.i("CoolHttp", "Response body length: " + responseBody.length);
+
             }
         } catch (Exception e) {
             exception = e;
@@ -156,7 +170,8 @@ public class HttpRequestTask {
      * @param header        请求头。
      * @throws Exception 可能会发生的异常。
      */
-    private void setHeader(HttpURLConnection urlConnection, Request<?> request, Map<String, String> header) throws Exception {
+    private void setHeader(HttpURLConnection urlConnection, Request<?> request, Map<String, String> header)
+            throws Exception {
         // Content-Type.
         header.put("Content-Type", request.getContentType());
 
