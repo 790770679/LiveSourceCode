@@ -1,11 +1,6 @@
 /.idea/
 /.gradle/
-/build/
 /captures/
-
+build
 *.iml
 /local.properties
-
-/sample/build
-/nohttp/build
-/okhttp/build

@@ -18,9 +18,9 @@ package com.yanzhenjie.httpmodule;
 import android.app.Application;
 
 import com.yanzhenjie.nohttp.OkHttpNetworkExecutor;
-import com.yolanda.nohttp.Logger;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.cache.DBCacheStore;
+import com.yanzhenjie.nohttp.Logger;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.cache.DBCacheStore;
 
 /**
  * Created by Yan Zhenjie on 2016/12/17.

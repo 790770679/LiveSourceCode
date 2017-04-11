@@ -15,7 +15,7 @@
  */
 package com.yanzhenjie.httpmodule.http;
 
-import com.yolanda.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.RequestMethod;
 
 /**
  * Created by Yan Zhenjie on 2016/12/17.

@@ -15,7 +15,7 @@
  */
 package com.yanzhenjie.httpmodule.http;
 
-import com.yolanda.nohttp.Headers;
+import com.yanzhenjie.nohttp.Headers;
 
 /**
  * Created by Yan Zhenjie on 2016/12/17.

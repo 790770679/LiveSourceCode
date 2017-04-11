@@ -13,8 +13,8 @@ import com.yanzhenjie.httpmodule.http.EntityRequest;
 import com.yanzhenjie.httpmodule.http.Result;
 import com.yanzhenjie.httpmodule.http.SimpleHttpListener;
 import com.yanzhenjie.httpmodule.http.StringRequest;
-import com.yolanda.nohttp.Logger;
-import com.yolanda.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.Logger;
+import com.yanzhenjie.nohttp.RequestMethod;
 
 import java.util.List;
 

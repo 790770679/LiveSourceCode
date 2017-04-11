@@ -16,7 +16,7 @@
 package com.yanzhenjie.httpmodule.http;
 
 import com.alibaba.fastjson.JSON;
-import com.yolanda.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.RequestMethod;
 
 import java.util.List;
 

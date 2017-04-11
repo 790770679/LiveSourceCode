@@ -32,7 +32,6 @@
         <activity
             android:name="com.yanzhenjie.album.AlbumActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="图库"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|stateHidden"/>
     </application>

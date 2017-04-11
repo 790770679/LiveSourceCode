@@ -15,8 +15,8 @@
  */
 package com.yanzhenjie.httpmodule.http;
 
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.rest.RequestQueue;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.rest.RequestQueue;
 
 /**
  * Created by Yan Zhenjie on 2016/12/17.

@@ -17,9 +17,9 @@ package com.yanzhenjie.httpmodule.http;
 
 import android.widget.Toast;
 
-import com.yolanda.nohttp.error.TimeoutError;
-import com.yolanda.nohttp.rest.OnResponseListener;
-import com.yolanda.nohttp.rest.Response;
+import com.yanzhenjie.nohttp.error.TimeoutError;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Response;
 
 /**
  * Created by Yan Zhenjie on 2016/12/17.

@@ -19,12 +19,12 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.yolanda.nohttp.Binary;
-import com.yolanda.nohttp.Headers;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.RestRequest;
-import com.yolanda.nohttp.rest.StringRequest;
-import com.yolanda.nohttp.tools.MultiValueMap;
+import com.yanzhenjie.nohttp.Binary;
+import com.yanzhenjie.nohttp.Headers;
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.RestRequest;
+import com.yanzhenjie.nohttp.rest.StringRequest;
+import com.yanzhenjie.nohttp.tools.MultiValueMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,7 +53,6 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
 
         // 添加统一参数。
         add("token", "000000");
-
 
         // ------------- 签名 --------------//
 
@@ -116,7 +115,7 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
     }
 
     @Override
-    public Result<T> parseResponse(Headers responseHeaders, byte[] responseBody) throws Throwable {
+    public Result<T> parseResponse(Headers responseHeaders, byte[] responseBody) throws Exception {
         String result = null;
         int responseCode = responseHeaders.getResponseCode();
 
