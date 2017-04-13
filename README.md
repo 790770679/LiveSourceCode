@@ -12,11 +12,11 @@
 * 往期直播视频下载地址：[http://pan.baidu.com/s/1bpHp3I3](http://pan.baidu.com/s/1bpHp3I3)
 
 # 代码文件夹说明
-*. ParallaxRefresh  
+* ParallaxRefresh  
  结合[Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)自定义下拉刷新视差动画。
-*. HttpRestModule  
+* HttpRestModule  
  Android Http结合业务请求JavaBean、List<JavaBean>和Map等复杂对象，签名、加密、解析都放在子线程。
-*. CoolHttp  
+* CoolHttp  
  从0开始设计一个Http框架，如果你也想写一个Retrofit、Volley或者NoHttp，那么这个视频将会教会你Http协议和框架设计。
 
 # 微信公众号
