@@ -31,12 +31,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>业务状态码用Http响应码返回。</p>
+ * <p>业务状态码在HttpBody中返回。</p>
  * Created by Yan Zhenjie on 2016/12/17.
  */
-public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
+public abstract class AbstractRequestNew<T> extends RestRequest<Result<T>> {
 
-    public AbstractRequest(String url, RequestMethod requestMethod) {
+    public AbstractRequestNew(String url, RequestMethod requestMethod) {
         super(url, requestMethod);
     }
 
@@ -76,7 +76,7 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
                     //第六步:将请求参数的value添加到Map中
                     keyValueMap.put(key, (String) value);
                 } else if (value instanceof Binary) {
-                    // TODO ...
+                    // Nothing.
                 }
             }
         }
@@ -100,7 +100,7 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
         }
 
         //第九步:对拼接好的参数进行MD5加密
-        String auth = md5(params);// TODO 对参数进行MD5加密。
+        String auth = md5(params);// 对参数进行MD5加密。
 
         //最后，添加到请求头。
         addHeader("auth", auth);
@@ -115,30 +115,34 @@ public abstract class AbstractRequest<T> extends RestRequest<Result<T>> {
 
     @Override
     public Result<T> parseResponse(Headers headers, byte[] body) throws Exception {
-        int responseCode = headers.getResponseCode();
-        // 响应码正确，且包体不为空。
-        if (responseCode == 200 && body != null && body.length > 0) {
-            String result = StringRequest.parseResponseString(headers, body);
-            try {
-                T t = getResult(result);
-                return new Result<>(true, t, headers, null);
-            } catch (Exception e) { // 解析发生错误。
-                String error = "服务器返回数据格式错误，请稍后重试";
-                return new Result<>(false, null, headers, error);
-            }
-        } else if (responseCode >= 400) { // 其它响应码处理。
-            String result = StringRequest.parseResponseString(headers, body);
+        int responseCode = headers.getResponseCode(); // 响应码。
 
-            String error = "服务器发生错误，请稍后重试";
-            // 错误响应码时正常解析说明是服务器返回的json数据。
-            // 非正常解析说明是服务器返回的崩溃信息html等。
-            try {
-                JSONObject jsonObject = JSON.parseObject(result);
-                error = jsonObject.getString("message");
-            } catch (Exception ignored) {
+        // 响应码等于200，Http层成功。
+        if (responseCode == 200) {
+            if (body == null || body.length == 0) {
+                // 服务器包体为空。
+                return new Result<>(true, null, headers, null);
+            } else {
+                String bodyString = StringRequest.parseResponseString(headers, body);
+                try {
+                    JSONObject bodyObject = JSON.parseObject(bodyString);
+                    // 业务层成功。
+                    if (bodyObject.getIntValue("errorCode") == 1) {
+                        String data = bodyObject.getString("data");
+                        // 重点、重点、重点：调用子类，解析出真正的数据。
+                        T result = getResult(data);
+                        return new Result<>(true, result, headers, null);
+                    } else {
+                        String error = bodyObject.getString("message");
+                        return new Result<>(false, null, headers, error);
+                    }
+                } catch (Exception e) {
+                    // 解析异常，测试时通过，正式发布后就是服务器的锅。
+                    String error = "服务器返回数据格式错误，请稍后重试";
+                    return new Result<>(false, null, headers, error);
+                }
             }
-            return new Result<>(false, null, headers, error);
-        } else {
+        } else { // 其它响应码，如果和服务器没有约定，那就是服务器发生错误了。
             String error = "服务器返回数据格式错误，请稍后重试";
             return new Result<>(false, null, headers, error);
         }

@@ -15,8 +15,6 @@
  */
 package com.yanzhenjie.httpmodule.http;
 
-import android.widget.Toast;
-
 import com.yanzhenjie.nohttp.error.TimeoutError;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Response;

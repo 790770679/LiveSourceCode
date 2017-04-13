@@ -6,20 +6,20 @@
 
 欢迎加入技术交流群：[547839514](http://shang.qq.com/wpa/qunwpa?idkey=06e5ff6fcbf5067abf3570c9491ed66f812066e30d743136a20c83ea104bed26)。  
 
-## 观看直播的姿势
+# 观看直播的姿势
 * YY观看频道：56600481
 * 浏览器观看地址：[http://www.huya.com/yolanda](http://www.huya.com/yolanda)
 * 往期直播视频下载地址：[http://pan.baidu.com/s/1bpHp3I3](http://pan.baidu.com/s/1bpHp3I3)
 
-## 代码文件夹说明
-1. ParallaxRefresh  
+# 代码文件夹说明
+*. ParallaxRefresh  
  结合[Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh)自定义下拉刷新视差动画。
-2. HttpRestModule  
- Android Http结合业务请求JavaBean、List<JavaBean>和Map等复杂对象。
-3. CoolHttp  
- 从0开始设计一个Http框架。
+*. HttpRestModule  
+ Android Http结合业务请求JavaBean、List<JavaBean>和Map等复杂对象，签名、加密、解析都放在子线程。
+*. CoolHttp  
+ 从0开始设计一个Http框架，如果你也想写一个Retrofit、Volley或者NoHttp，那么这个视频将会教会你Http协议和框架设计。
 
-## 微信公众号
+# 微信公众号
 微信公众号搜索**严振杰**或者扫码即可关注。  
 
 ![微信二维码](http://img.blog.csdn.net/20161020083048694)
